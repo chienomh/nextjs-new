@@ -32,3 +32,7 @@ Viết 1 ứng dụng NextJS thực hiện các công việc sau:
 |5  | Trang chi tiết bài viết có url dạng: `/posts/<tieu-de-bai-viet>`   	| 0.5đ   	|
 |6  | Có phân trang/sắp xếp bài viết   	| 1đ   	|
 |7  | Deploy lên public internet    | 1đ    |
+
+## Cách thức nộp bài
+1. Tạo folder có tên dạng `khanhdn`
+2. Tạo pull request để merge vào `main` branch
