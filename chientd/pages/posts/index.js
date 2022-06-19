@@ -21,7 +21,7 @@ export default function Post({ posts }) {
 
   const [params, setParams] = useState({ limit: 10, page: 0 });
   const [dataPost, setDataPost] = useState(posts);
-  const [typeSort, setTypeSort] = useState(-1);
+  const [typeSort, setTypeSort] = useState("-1");
 
   useEffect(() => {
     (async () => {
@@ -30,23 +30,8 @@ export default function Post({ posts }) {
       );
 
       setDataPost(data.data.data);
-      // console.log(typeSort);
-      // switch (typeSort) {
-      //   case "0": {
-      //     const datapost = data.data.data.sort((a, b) =>
-      //       a.likes > b.likes ? 1 : b.likes > a.likes ? -1 : 0
-      //     );
-      //     setDataPost(datapost);
-      //   }
-      //   case "1": {
-      //     const datapost = data.data.data.sort((a, b) =>
-      //       a.likes < b.likes ? -1 : b.likes < a.likes ? 1 : 0
-      //     );
-      //     setDataPost(datapost);
-      //   }
-      // }
     })();
-  }, [params, typeSort]);
+  }, [params]);
 
   const handleChagePrePage = () => {
     if (params.page !== 0) {
@@ -62,6 +47,25 @@ export default function Post({ posts }) {
     setTypeSort(e.target.value);
   };
 
+  useEffect(() => {
+    switch (typeSort) {
+      case "0": {
+        const datapostnew = dataPost.sort((a, b) =>
+          a.likes > b.likes ? 1 : b.likes > a.likes ? -1 : 0
+        );
+        setDataPost(datapostnew);
+        break;
+      }
+      case "1": {
+        const datapostnew = dataPost.sort((a, b) =>
+          a.likes < b.likes ? -1 : b.likes < a.likes ? 1 : 0
+        );
+        setDataPost(datapostnew);
+        break;
+      }
+    }
+  }, [typeSort]);
+
   return (
     <div className={styles.wrapper}>
       <div>
@@ -70,7 +74,6 @@ export default function Post({ posts }) {
           <option value="-1">No</option>
           <option value="0">Asc like</option>
           <option value="1">Des like</option>
-          <option value="2">Like</option>
         </select>
       </div>
       <table className={styles.tablePost}>
