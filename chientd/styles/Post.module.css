@@ -1,0 +1,40 @@
+.wrapper {
+    /* display: flex; */
+    justify-content: center;
+    text-align: center;
+}
+
+.tableHeader {
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: 1px solid #FFD154;
+    height: 100px;
+    border-bottom: 1px solid #FFD154
+};
+
+.tableBody {
+    cursor: pointer;
+}
+
+.tableBody:hover {
+    color: aliceblue;
+}
+
+
+.itemTable {
+    width: 100px;
+}
+
+.tablePost {
+    border: 1px solid #FFD154;
+    padding: 20px;
+}
+
+.nameDetail {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.titleDetail {
+    width: 100px;
+}
